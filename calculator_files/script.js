@@ -1,15 +1,26 @@
 "use strict";
 
-window.addEventListener("DOMContentLoaded", settingUp());
+let firstNumber = document.querySelector("#firstnumber");
+let secondNumber = document.querySelector("#secondnumber");
+
+window.addEventListener("DOMContentLoaded", settingUp);
 
 function settingUp() {
 console.log("settingUp");
-clickCalculate();
+document.querySelector("#calculate").addEventListener("click", clickCalculate);
+
+// document.querySelector("#firstnumber").addEventListener("change", clickCalculate);
+// document.querySelector("#secondnumber").addEventListener("change", clickCalculate);
 }
 
 function clickCalculate(){
-console.log("clickCalculate");
-readFirstNumber();
+console.log("clickCalculate", firstNumber.value , secondNumber.value);
+if (firstNumber === value && secondNumber === value){
+    console.log("Der er tal");
+} else {
+    console.log("Der mangler tal")
+}
+document.querySelector("#calculate").addEventListener("click", readFirstNumber);
 }
 
 function readFirstNumber(){

@@ -19,13 +19,13 @@ console.log(nothing);
 console.log(undf);
 console.log(symbol);
  
-// See type of variable - write in this in console
-// typeof bool;
-// typeof num;
-// typeof str;
-// typeof obj;
-// typeof nothing;
-// typeof undf;
-// typeof symbol;
+// See type of variable - write this in the console
+// typeof bool; (string)
+// typeof num; (number)
+// typeof str; (string)
+// typeof obj; (object)
+// typeof nothing; (object)
+// typeof undf; (undefinded)
+// typeof symbol; (symbol)
 
  

@@ -24,4 +24,4 @@ if (value){
 // Infinity - true
 // 3.14 - true
 // -0 - false
-// " "
+// " " - true

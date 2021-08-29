@@ -5,6 +5,8 @@ let secondNumber;
 let operator;
 let results = document.querySelector("#results");
 let answer;
+let decimals;
+let rounded;
 
 
 
@@ -12,57 +14,57 @@ let answer;
 window.addEventListener("DOMContentLoaded", settingUp);
 
 function settingUp() {
-console.log("settingUp");
-document.querySelector("#calculate").addEventListener("click", readFirstNumber);
+    console.log("settingUp");
+    document.querySelector("#calculate").addEventListener("click", readFirstNumber);
 }
 
 
 function readFirstNumber(){
-firstNumber = (document.querySelector("#firstnumber").value);
-console.log("First number:", firstNumber);
-readSecondNumber();
+    firstNumber = parseFloat(document.querySelector("#firstnumber").value);
+    console.log("First number:", firstNumber);
+    readSecondNumber();
 }
 
 function readSecondNumber() {
-secondNumber = document.querySelector("#secondnumber").value;
-console.log("Second number:", secondNumber);
-readOperator();
+    secondNumber = parseFloat(document.querySelector("#secondnumber").value);
+    console.log("Second number:", secondNumber);
+    readOperator();
 }
 
 function readOperator(){
-operator = document.querySelector("#operator").value;
-console.log("Operator:", operator);
-if (operator === 'add') {
-    calculatePlus();
-} else if (operator === 'sub') {
-    calculateMinus();
-} else if (operator === 'mul') {
-    calculateMultiply();
-} else {
-    calculateDivide();
+    operator = document.querySelector("#operator").value;
+    console.log("Operator:", operator);
+    if (operator === 'add') {
+        calculatePlus();
+    } else if (operator === 'sub') {
+        calculateMinus();
+    } else if (operator === 'mul') {
+        calculateMultiply();
+    } else {
+        calculateDivide();
 }
 }
 
 function calculatePlus(){ 
-    answer = parseInt(firstNumber)+parseInt(secondNumber);
+    answer = firstNumber+secondNumber;
     console.log("Plus: ", answer);
     checkRounding();
 }
 
 function calculateMinus(){
-    answer = parseInt(firstNumber)-parseInt(secondNumber);
+    answer = firstNumber-secondNumber;
     console.log("Minus: ", answer);
     checkRounding();
 }
 
 function calculateMultiply(){
-    answer = parseInt(firstNumber)*parseInt(secondNumber);
+    answer = firstNumber*secondNumber;
     console.log("Multiply: ", answer);
     checkRounding();
 }
 
 function calculateDivide(){
-    answer = parseInt(firstNumber)/parseInt(secondNumber);
+    answer = firstNumber/secondNumber;
     console.log("Divide: ", answer);
     checkRounding();
 }
@@ -79,12 +81,16 @@ function checkRounding(){
 
 function readDecimals(){
     console.log("readDecimals");
-
+    decimals = document.querySelector("#decimals").value;
+    console.log("Decimaler:", decimals);
+    rounded = answer.toFixed(decimals);
+    console.log(rounded);
     roundResult();
 }
 
 function roundResult(){
     console.log("roundResult");
+    answer = rounded;
     writeResult();
 }
 

@@ -1,45 +1,48 @@
 "use strict";
 
-let firstNumber = document.querySelector("#firstnumber");
-let secondNumber = document.querySelector("#secondnumber");
+let firstNumber = document.querySelector("#firstnumber").value;
+let secondNumber = document.querySelector("#secondnumber").value;
+let operator = document.querySelector("#operator");
+let operatorValue = operator.options[operator.selectedIndex].value;
+let answer = document.querySelector("#results li");
+
 
 window.addEventListener("DOMContentLoaded", settingUp);
 
 function settingUp() {
 console.log("settingUp");
-document.querySelector("#calculate").addEventListener("click", clickCalculate);
-
-// document.querySelector("#firstnumber").addEventListener("change", clickCalculate);
-// document.querySelector("#secondnumber").addEventListener("change", clickCalculate);
-}
-
-function clickCalculate(){
-console.log("clickCalculate", firstNumber.value , secondNumber.value);
-if (firstNumber === value && secondNumber === value){
-    console.log("Der er tal");
-} else {
-    console.log("Der mangler tal")
-}
 document.querySelector("#calculate").addEventListener("click", readFirstNumber);
 }
 
+
 function readFirstNumber(){
-console.log("readFirstNumber");
+console.log("First number:", firstNumber);
 readSecondNumber();
 }
 
 function readSecondNumber() {
-console.log("readSecondNumber");
+console.log("Second number:", secondNumber);
 readOperator();
 }
 
 function readOperator(){
-console.log("readOperator");
-calculatePlus();
+console.log("Operator:", operatorValue);
+// calculatePlus();
+if (operatorValue === "add")
+    {
+    calculatePlus();
+} else if (operatorValue === 'sub') {
+    calculateMinus();
+} else if (operatorValue === 'mul') {
+    calculateMultiply();
+} else {
+    calculateDivide();
+}
 }
 
 function calculatePlus(){
-console.log("calculatePlus");
+let plus = parseInt(firstNumber)+parseInt(secondNumber);
+answer.innerHTML = plus;
 checkRounding();
 }
 

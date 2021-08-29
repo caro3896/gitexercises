@@ -1,9 +1,12 @@
 "use strict";
 
-let firstNumber = document.querySelector("#firstnumber").value;
+let firstNumber = document.querySelector("#firstnumber").value; // 
 let secondNumber = document.querySelector("#secondnumber").value;
 let operator = document.querySelector("#operator").value;
-let answer = document.querySelector("#results li");
+let results = document.querySelector("#results");
+let li = document.createElement("LI");
+
+
 
 
 window.addEventListener("DOMContentLoaded", settingUp);
@@ -40,28 +43,32 @@ if (operator === 'add') {
 function calculatePlus(){ 
     let plus = parseInt(firstNumber)+parseInt(secondNumber);
     console.log("Plus: ", plus);
-    answer.innerHTML = plus;
+    li.appendChild(document.createTextNode(plus));
+    results.appendChild(li);
     checkRounding();
 }
 
 function calculateMinus(){
     let minus = parseInt(firstNumber)-parseInt(secondNumber);
     console.log("Minus: ", minus);
-    answer.innerHTML = minus;
+    li.appendChild(document.createTextNode(minus));
+    results.appendChild(li);
     checkRounding();
 }
 
 function calculateMultiply(){
     let multi = parseInt(firstNumber)*parseInt(secondNumber);
     console.log("Multiply: ", multi);
-    answer.innerHTML = multi;
+    li.appendChild(document.createTextNode(multi));
+    results.appendChild(li);
     checkRounding();
 }
 
 function calculateDivide(){
     let div = parseInt(firstNumber)/parseInt(secondNumber);
     console.log("Divide: ", div);
-    answer.innerHTML = div;
+    li.appendChild(document.createTextNode(multi));
+    results.appendChild(li);
     checkRounding();
 }
 

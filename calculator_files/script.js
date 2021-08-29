@@ -71,7 +71,6 @@ function checkRounding(){
     if (document.querySelector("#doround").checked) {
         readDecimals();
     } else {
-        
         writeResult();
     } 
 }
@@ -110,4 +109,13 @@ function appendResult(){
 function scroll(){
     console.log("scroll");
     results.scrollTo(0,10000);
+    document.querySelector("#clear").addEventListener("click", clearResults);
+}
+
+function clearResults(){
+    console.log("Clear all")
+    results.textContent = "";
+    document.querySelector("#firstnumber").value = '';
+    document.querySelector("#secondnumber").value = '';
+    console.log("Tal: ", firstNumber, secondNumber);
 }

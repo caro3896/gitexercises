@@ -8,9 +8,6 @@ let answer;
 let decimals;
 let rounded;
 
-
-
-
 window.addEventListener("DOMContentLoaded", settingUp);
 
 function settingUp() {
@@ -71,12 +68,12 @@ function calculateDivide(){
 
 function checkRounding(){
     console.log("checkRounding");
-    if (document.querySelector("#doround").checked = true) {
+    if (document.querySelector("#doround").checked) {
         readDecimals();
     } else {
+        
         writeResult();
-    }
-    
+    } 
 }
 
 function readDecimals(){

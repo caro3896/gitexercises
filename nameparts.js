@@ -1,15 +1,27 @@
 "use strict";
-let name = "Caroline Ragnholm Juhl";
 
-// First name
-let firstName = name.substring(name.indexOf(" "), name.substring(name.lastIndexOf(" ")));
-console.log(firstName);
+getNameParts("Caroline Juhl");
+
+function getNameParts(fullname){
+    // First name
+    let firstName = fullname.substring(fullname.indexOf(" "), fullname.substring(fullname.lastIndexOf(" ")));
+    console.log(firstName);
 
 // Middle name
-let middleName = name.substring(name.indexOf(" ")+1, name.lastIndexOf(" "));
-console.log(middleName);
+    let middleName;
+    if (fullname.length > 2){
+        middleName = fullname.substring(fullname.indexOf(" ")+1, fullname.lastIndexOf(" "));
+    } else {
+        middleName = undefined;
+    }
+    
+    console.log(middleName);
 
 // Last name 
-let lastName = name.substring(name.lastIndexOf(" ")+1);
-console.log(lastName);
+    let lastName = fullname.substring(fullname.lastIndexOf(" ")+1);
+    console.log(lastName);
+}
+
+
+
 

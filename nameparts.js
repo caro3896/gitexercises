@@ -22,6 +22,12 @@ function getNameParts(fullname){
     console.log(lastName);
 }
 
+fullName("Juhl", "Caroline");
 
-
-
+function fullName(lastName, firstName, middleName){
+    if (middleName == undefined){
+        console.log(`${firstName} ${lastName}`);
+    } else {
+        console.log(`${firstName} ${middleName} ${lastName}`);
+    }
+}

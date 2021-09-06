@@ -1,13 +1,15 @@
 "use strict";
 
-let colorWell = document.querySelector("#color_selector");
+const colorWell = document.querySelector("#color_selector");
 
 window.addEventListener("DOMContentLoaded", start)
+
 
 function start(){
     console.log("Dom is loaded");
     colorWell.addEventListener("input", showColor);
 }
+
 
 function showColor(event){
     document.querySelector(".color").style.background = event.target.value;
@@ -26,18 +28,22 @@ function getValueOf(hexNumber){
     calculateRGB(r, g, b);
 }
 
+// Calculate RGB value from HSL value
+// ParseInt parses (analyserer) a string and returns an integer (helt tal) of the specified radix
 function calculateRGB(red, green, blue){
-    red = parseInt(red, 16);
-    green = parseInt(green, 16);
+    red = parseInt(red, 16); //the string is red, the hexnumber for the red color
+    green = parseInt(green, 16); //the radix is 16, which is the radix for the hexadecimalsystem
     blue = parseInt(blue, 16);
     showRGB(red,green,blue);
 }
 
+// Showin the RGB value - writing output to HTML
 function showRGB(R,G,B){
     document.querySelector(".rgb").innerHTML = `${R}, ${G}, ${B}`;
     calculateHSL(R,G,B);
 }
 
+// Calculate HSL values from RGB values - BLACK BOX - unknown code
 function calculateHSL(r,g,b){
     r /= 255;
     g /= 255;
@@ -71,6 +77,7 @@ function calculateHSL(r,g,b){
     s *= 100;
     l *= 100;
 
+    // Rounding to even numbers
     h = Math.round(h);
     s = Math.round(s);
     l = Math.round(l);

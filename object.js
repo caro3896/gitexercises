@@ -36,4 +36,4 @@ const person3 = {
     student: true
 };
 
-person2=person3;
+person2 = person3;

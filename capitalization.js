@@ -1,11 +1,10 @@
 "use strict";
 
-capitalize("caROlINe");
-
-function capitalize(str){
-    let newStr = str[0].toUpperCase() + str.substring(1).toLowerCase();
-    console.log(newStr);
+function capitalize(name){
+    const result = name[0].toUpperCase() + name.substring(1).toLowerCase();
+    return result;
 }
 
-
-
+const name = "carOLINe";
+const cap = capitalize(name);
+console.log(cap);

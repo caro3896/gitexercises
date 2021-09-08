@@ -3,8 +3,8 @@
 window.addEventListener("DOMContentLoaded", randomBackground);
 
 function randomBackground(){
-    randomColor();
-    rgbToCSS(rgb);
+    const rgb = randomColor();
+    document.body.style.backgroundColor = rgbToCSS(rgb);
 }
 
 function randomColor(){
@@ -17,12 +17,15 @@ function randomColor(){
     return {r,g,b};
 }
 
-const rgb = randomColor();
-console.log(rgb);
 
-function rgbToCSS(rgb){
-    rgb = rgb.toString();
-    console.log(rgb);
-    return rgb;
- 
+// const test = rgbToCSS(rgb);
+// // console.log(rgb);
+// console.log(test);
+
+function rgbToCSS(rgbObject){
+    const color = `rgb(${rgbObject.r},${rgbObject.g},${rgbObject.b})`;
+    return color;
 }
+
+// const test = rgbToCSS(rgb);
+// console.log(test);

@@ -1,50 +1,56 @@
 "use strict";
 
-const colorWell = document.querySelector("#color_selector");
+const colorWheel = document.querySelector("#color_selector");
 
-window.addEventListener("DOMContentLoaded", start)
+window.addEventListener("DOMContentLoaded", getColor)
 
-
-function start(){
+// Listen for color input - WORKS
+function getColor(){
     console.log("Dom is loaded");
-    colorWell.addEventListener("input", showColor);
+    colorWheel.addEventListener("input", showColor);
 }
 
-
+// Call functions to show color i various formats - WORKS
 function showColor(event){
-    document.querySelector(".color").style.background = event.target.value;
-    showHex(event);
+    const rgbObject = HexToRgb(event.target.value);
+    document.querySelector(".rgb").innerHTML = showRGB(rgbObject);
+    const cssColor = rgbToCSS(rgbObject);
+    document.querySelector(".color").style.background = showColorBox(cssColor);
+    
+    const hexStr = rgbToHex(rgbObject);
+    document.querySelector(".hex").innerHTML = showHex(hexStr);
+   
+    const hslStr = RgbToHsl(rgbObject.r,rgbObject.g,rgbObject.b);
+    document.querySelector(".hsl").innerHTML = showHSL(hslStr);
+
 }
 
-function showHex(event){
-    document.querySelector(".hex").innerHTML = event.target.value;
-    let hex = getValueOf(event.target.value);
+function showColorBox(css){
+    return css;
 }
 
-function getValueOf(hexNumber){
-    let r = hexNumber.substring(1,3);
-    let g = hexNumber.substring(3,5);
-    let b = hexNumber.substring(5,8);
-    calculateRGB(r, g, b);
+function showHex(hexValue){
+    return hexValue;
 }
 
-// Calculate RGB value from HSL value
-// ParseInt parses (analyserer) a string and returns an integer (helt tal) of the specified radix
-function calculateRGB(red, green, blue){
-    red = parseInt(red, 16); //the string is red, the hexnumber for the red color
-    green = parseInt(green, 16); //the radix is 16, which is the radix for the hexadecimalsystem
-    blue = parseInt(blue, 16);
-    showRGB(red,green,blue);
+function showRGB(object){
+    return `(${object.r}, ${object.g}, ${object.b})`;
 }
 
-// Showin the RGB value - writing output to HTML
-function showRGB(R,G,B){
-    document.querySelector(".rgb").innerHTML = `${R}, ${G}, ${B}`;
-    calculateHSL(R,G,B);
+function showHSL(hslValue){
+    return `${hslValue.h}, ${hslValue.s}%, ${hslValue.l}%`;
 }
 
-// Calculate HSL values from RGB values - BLACK BOX - unknown code
-function calculateHSL(r,g,b){
+// Calculations and conversions
+
+function HexToRgb(hex){
+    const r = parseInt(hex.substring(1,3),16);
+    const g = parseInt(hex.substring(3,5),16);
+    const b = parseInt(hex.substring(5,8),16);
+    return {r,g,b};
+}
+
+function RgbToHsl(r, g, b){
     r /= 255;
     g /= 255;
     b /= 255;
@@ -82,9 +88,24 @@ function calculateHSL(r,g,b){
     s = Math.round(s);
     l = Math.round(l);
 
-    showHSL(h, s, l);
+    return {h, s, l};
 }
 
-function showHSL(hue, sat, lum){
-    document.querySelector(".hsl").innerHTML = `${hue}, ${sat}%, ${lum}%`;
+function rgbToHex(rgb){
+    let r = rgb.r.toString(16);
+    let g = rgb.g.toString(16);
+    let b = rgb.b.toString(16);
+
+    if (r.length == 1)
+    r = "0" + r;
+    if (g.length == 1)
+    g = "0" + g;
+    if (g.length == 1)
+    b = "0" + b;
+
+    return "#" + r + g + b;
+}
+
+function rgbToCSS(rgbValue){
+    return `rgb(${rgbValue.r}, ${rgbValue.g}, ${rgbValue.b})`;
 }

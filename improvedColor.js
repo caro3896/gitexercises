@@ -4,13 +4,13 @@ const colorWheel = document.querySelector("#color_selector");
 
 window.addEventListener("DOMContentLoaded", getColor)
 
-// Listen for color input - WORKS
+// Listen for color input 
 function getColor(){
     console.log("Dom is loaded");
     colorWheel.addEventListener("input", showColor);
 }
 
-// Call functions to show color i various formats - WORKS
+// Call functions to show color i various formats - delegator function
 function showColor(event){
     const rgbObject = HexToRgb(event.target.value);
     document.querySelector(".rgb").innerHTML = showRGB(rgbObject);
@@ -24,6 +24,8 @@ function showColor(event){
     document.querySelector(".hsl").innerHTML = showHSL(hslStr);
 
 }
+
+// Show color in various formats
 
 function showColorBox(css){
     return css;

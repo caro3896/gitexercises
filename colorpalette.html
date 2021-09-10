@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="colorpalette.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div id="select_color">
+            <label for="color_selector">Select color:</label>
+            <input type="color" value="" id="color_selector">
+        </div>
+        <div id="select_harmony"></div>
+        <p>Select harmony:</p>
+            <label for="analogus">Analogus</label>
+            <input type="radio" value="analogus" id="analogus" name="harmony" checked>
+           
+            <label for="monochromatic">Monochromatic</label>
+            <input type="radio" value="monochromatic" id="monochromatic" name="harmony">
+           
+            <label for="triad">Triad</label>
+            <input type="radio" value="triad" id="triad" name="harmony">
+           
+            <label for="complementary">Complementary</label>
+            <input type="radio" value="complementary" id="complementary" name="harmony">
+
+            <label for="compound">Compound</label>
+            <input type="radio" value="compound" id="compound" name="harmony">
+
+            <label for="shades">Shades</label>
+            <input type="radio" value="shades" id="shades" name="harmony">
+
+        <div id="first_color">
+            <div class="colors color1"></div>
+            <p class="hex1"></p>
+            <p class="rgb1"></p>
+            <p class="hsl1"></p>
+        </div>
+        <div id="second_color">
+            <div class="colors color2"></div>
+            <p class="hex2"></p>
+            <p class="rgb2"></p>
+            <p class="hsl2"></p>
+        </div>
+        <div id="third_color">
+            <div class="colors color3"></div>
+            <p class="hex3"></p>
+            <p class="rgb3"></p>
+            <p class="hsl3"></p>
+        </div>
+        <div id="fourth_color">
+            <div class="colors color4"></div>
+            <p class="hex4"></p>
+            <p class="rgb4"></p>
+            <p class="hsl4"></p>
+        </div>
+        <div id="fifth_color">
+            <div class="colors color5"></div>
+            <p class="hex5"></p>
+            <p class="rgb5"></p>
+            <p class="hsl5"></p>
+        </div>
+    </section>
+    <script src="colorpalette.js"></script>
+</body>
+</html>
